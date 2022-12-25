@@ -61,9 +61,10 @@ function determineRoutes(day) {
 };
 
 function calculateBulkSize(numerics) {
-  const totalCopies = numerics.Totals[1].Supply;
-  const totalBulk = numerics.Totals[2].Bulk;
-  const totalInKeys = numerics.Totals[4]["Copies in Keys"];
+  const totalsIndex = numerics.length - 1;
+  const totalCopies = numerics[totalsIndex].Supply;
+  const totalBulk = numerics[totalsIndex].Bulk;
+  const totalInKeys = numerics[totalsIndex]["Copies in Keys"];
   return (totalCopies - totalInKeys)/totalBulk;
 }
 
@@ -131,36 +132,42 @@ async function storeData(filename) {
   // Determine the required routes based on day of week.
   const routes = determineRoutes(dayOfWeek);
 
+  // Create an object for storing all data
+  const dataObject = {};
 
-  // Create an object for storing data for each route.
-  const numericDataObject = {};
+  // Create an array for storing data for each route.
+  const numericDataArray = [];
 
   // Obtain numeric data as last 6 entries of each array and 
   splitStrings.forEach((item,index) => {
     const numerics = item.slice(-6);
     const headers = ['Drops', 'Supply', 'Bulk', 'Keys', 'Copies in Keys', 'Weight (kg)'];
-    const numericsWithHeaders = numerics.map((numeric,index) => {
-      return {[headers[index]]: numeric}
+    const tempObject = {};
+    numerics.forEach((numeric,index) => {
+      return tempObject[headers[index]] = numeric;
     })
-    
-    numericDataObject[routes[index]] = numericsWithHeaders;
+    tempObject.Route = routes[index]; 
+    numericDataArray[index] = tempObject;
   });
+  
+  // Add data to the object
+  dataObject["Route Data"] = numericDataArray
 
   // Add the date and day data to the object.
-  numericDataObject["Date"] = dateString;
-  numericDataObject["Day"] = dayOfWeek;
+  dataObject["Date"] = dateString;
+  dataObject["Day"] = dayOfWeek;
 
   // Calculate the bulk size based on total supply data and add to data object.
-  const bulkSize = calculateBulkSize(numericDataObject);
-  numericDataObject["Bulk Size"] = bulkSize;
+  const bulkSize = calculateBulkSize(numericDataArray);
+  dataObject["Bulk Size"] = bulkSize;
 
   // Determine publication code.
   const pubCode = `NCH${dayOfWeek.split('').slice(0,3).join('').toUpperCase()}`;
-  numericDataObject["Publication Code"] = pubCode;
+  dataObject["Publication Code"] = pubCode;
 
-  console.log(numericDataObject);
+  console.log(dataObject);
   
-  return numericDataObject;
+  return numericDataArray;
 }
 
 storeData("/home/steven/WebDevelopment/Route List Summary/pdf/RouteListSummary20221224_NCH_NCHSAT_NCHSATPRIM_221221082147_58.pdf")
