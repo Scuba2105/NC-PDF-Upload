@@ -20,6 +20,10 @@ body {
     flex-direction: column;
 }
 
+.publication {
+  margin-top: 0px;
+}
+
 .title {
     margin: 0px auto 10px auto;
     width: 100%;

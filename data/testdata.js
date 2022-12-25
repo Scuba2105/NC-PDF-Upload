@@ -1,12 +1,12 @@
 const testData = {
-    'Route Data': [
+    RouteData: [
       {
         Drops: '39',
         Supply: '6958',
         Bulk: '99',
         Keys: '39',
-        'Copies in Keys': '1018',
-        'Weight (kg)': '1113.28',
+        CopiesinKeys: '1018',
+        Weight: '1113.28',
         Route: 'SATNDSNEW'
       },
       {
@@ -14,8 +14,8 @@ const testData = {
         Supply: '2',
         Bulk: '0',
         Keys: '1',
-        'Copies in Keys': '2',
-        'Weight (kg)': '0.32',
+        CopiesinKeys: '2',
+        Weight: '0.32',
         Route: 'SATNDSCC'
       },
       {
@@ -23,8 +23,8 @@ const testData = {
         Supply: '361',
         Bulk: '2',
         Keys: '14',
-        'Copies in Keys': '241',
-        'Weight (kg)': '57.76',
+        CopiesinKeys: '241',
+        Weight: '57.76',
         Route: 'SATB005N'
       },
       {
@@ -32,8 +32,8 @@ const testData = {
         Supply: '218',
         Bulk: '2',
         Keys: '4',
-        'Copies in Keys': '98',
-        'Weight (kg)': '34.88',
+        CopiesinKeys: '98',
+        Weight: '34.88',
         Route: 'SATB015N'
       },
       {
@@ -41,8 +41,8 @@ const testData = {
         Supply: '185',
         Bulk: '0',
         Keys: '14',
-        'Copies in Keys': '185',
-        'Weight (kg)': '29.60',
+        CopiesinKeys: '185',
+        Weight: '29.60',
         Route: 'SATB018N'
       },
       {
@@ -50,8 +50,8 @@ const testData = {
         Supply: '215',
         Bulk: '0',
         Keys: '21',
-        'Copies in Keys': '215',
-        'Weight (kg)': '34.40',
+        CopiesinKeys: '215',
+        Weight: '34.40',
         Route: 'SATB020N'
       },
       {
@@ -59,8 +59,8 @@ const testData = {
         Supply: '339',
         Bulk: '1',
         Keys: '12',
-        'Copies in Keys': '279',
-        'Weight (kg)': '54.24',
+        CopiesinKeys: '279',
+        Weight: '54.24',
         Route: 'SATB030N'
       },
       {
@@ -68,8 +68,8 @@ const testData = {
         Supply: '684',
         Bulk: '7',
         Keys: '13',
-        'Copies in Keys': '264',
-        'Weight (kg)': '109.44',
+        CopiesinKeys: '264',
+        Weight: '109.44',
         Route: 'SATB045N'
       },
       {
@@ -77,8 +77,8 @@ const testData = {
         Supply: '3040',
         Bulk: '41',
         Keys: '20',
-        'Copies in Keys': '580',
-        'Weight (kg)': '486.40',
+        CopiesinKeys: '580',
+        Weight: '486.40',
         Route: 'SATB055N'
       },
       {
@@ -86,8 +86,8 @@ const testData = {
         Supply: '1227',
         Bulk: '9',
         Keys: '30',
-        'Copies in Keys': '687',
-        'Weight (kg)': '196.32',
+        CopiesinKeys: '687',
+        Weight: '196.32',
         Route: 'SATB060N'
       },
       {
@@ -95,8 +95,8 @@ const testData = {
         Supply: '1266',
         Bulk: '11',
         Keys: '35',
-        'Copies in Keys': '606',
-        'Weight (kg)': '202.56',
+        CopiesinKeys: '606',
+        Weight: '202.56',
         Route: 'SATB065N'
       },
       {
@@ -104,8 +104,8 @@ const testData = {
         Supply: '1136',
         Bulk: '10',
         Keys: '22',
-        'Copies in Keys': '536',
-        'Weight (kg)': '181.76',
+        CopiesinKeys: '536',
+        Weight: '181.76',
         Route: 'SATB067N'
       },
       {
@@ -113,8 +113,8 @@ const testData = {
         Supply: '839',
         Bulk: '8',
         Keys: '9',
-        'Copies in Keys': '359',
-        'Weight (kg)': '134.24',
+        CopiesinKeys: '359',
+        Weight: '134.24',
         Route: 'SATB070N'
       },
       {
@@ -122,8 +122,8 @@ const testData = {
         Supply: '1708',
         Bulk: '22',
         Keys: '15',
-        'Copies in Keys': '388',
-        'Weight (kg)': '273.28',
+        CopiesinKeys: '388',
+        Weight: '273.28',
         Route: 'SATB090N'
       },
       {
@@ -131,8 +131,8 @@ const testData = {
         Supply: '64',
         Bulk: '0',
         Keys: '10',
-        'Copies in Keys': '64',
-        'Weight (kg)': '10.24',
+        CopiesinKeys: '64',
+        Weight: '10.24',
         Route: 'SATCCEST'
       },
       {
@@ -140,8 +140,8 @@ const testData = {
         Supply: '110',
         Bulk: '0',
         Keys: '15',
-        'Copies in Keys': '110',
-        'Weight (kg)': '17.60',
+        CopiesinKeys: '110',
+        Weight: '17.60',
         Route: 'SATCCNTH'
       },
       {
@@ -149,8 +149,8 @@ const testData = {
         Supply: '58',
         Bulk: '0',
         Keys: '13',
-        'Copies in Keys': '58',
-        'Weight (kg)': '9.28',
+        CopiesinKeys: '58',
+        Weight: '9.28',
         Route: 'SATCCSTH'
       },
       {
@@ -158,15 +158,15 @@ const testData = {
         Supply: '18410',
         Bulk: '212',
         Keys: '287',
-        'Copies in Keys': '5690',
-        'Weight (kg)': '2,945.60',
+        CopiesinKeys: '5690',
+        Weight: '2,945.60',
         Route: 'Totals'
       }
     ],
     Date: '24/12/2022',
     Day: 'Saturday',
-    'Bulk Size': 60,
-    'Publication Code': 'NCHSAT'
+    BulkSize: 60,
+    PublicationCode: 'NCHSAT'
   }
 
   module.exports = {testData}
