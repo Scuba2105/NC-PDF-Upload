@@ -1,0 +1,25 @@
+body {
+    width: 29.7cm;
+    height: 19.5cm; 
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-background {
+    width: calc(29.7cm - 1cm);
+    height: calc(19.5cm - 1cm);
+    display: grid;
+    grid-template-rows: 3cm 1fr;
+}
+
+.header-region {
+    grid-row: 1 / 2;
+    background-color: aquamarine;
+}
+
+.data-region {
+    grid-row: 2 / -1;
+    background-color: bisque;
+}
