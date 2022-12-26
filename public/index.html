@@ -8,14 +8,24 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <h1>Northern Circulation Route Summary Generator</h1>
-    <div class="uploadnew">
-        <h2>Generate New Data</h2>
-        <img class="uploadimage" src="./upload-file.svg"> 
-        <form action="fileupload" method="post" enctype="multipart/form-data" class="uploadform">
-            <input type="file" class="fileupload" name="pdftoparse"><br>
-            <input type="submit" class="submit">
-        </form>
+    <h1 class="title">Northern Circulation Route Summary Generator</h1>
+    <div class="options">
+        <div class="uploadnew">
+            <h2>Generate New Data</h2>
+            <img class="uploadimage" src="./upload-file.svg"> 
+            <form action="/fileupload" method="post" enctype="multipart/form-data" class="uploadform">
+                <input type="file" class="fileupload" name="pdftoparse"><br>
+                <input type="submit" class="submit">
+            </form>
+        </div>
+        <div class="lookup">
+            <h2>Search Data</h2>
+            <img class="lookupimage" src="./search.svg"> 
+            <form action="/search" method="post" enctype="multipart/form-data" class="searchform">
+                <input type="date" class="searchdate" name="searchforhtml"><br>
+                <input type="submit" value="Search" class="submit">
+            </form>
+        </div>
     </div>
 </body>
 </html>

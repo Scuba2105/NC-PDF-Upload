@@ -1,3 +1,8 @@
+* {
+    margin: 0px;
+    padding: 0px;
+ }
+
 body {
     display: flex;
     flex-direction: column;
@@ -5,10 +10,26 @@ body {
     justify-content: center;
 }
 
+.title {
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: rgb(47, 47, 56);
+    margin-top: 0px;
+    padding: 20px;
+}
+
+.options {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
 .uploadnew {
     display: flex;
     flex-direction: column;
-    justify-content: space-arounds;
+    justify-content: space-around;
     align-items: center;
     border: 1px solid black;
     width: 300px;
@@ -26,6 +47,39 @@ body {
 }
 
 .uploadform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+}
+
+.submit {
+    height: 35px;
+    width: 100px;
+}
+
+.lookup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+}
+
+.lookupimage {
+    height: 75px;
+    width: 50px;
+}
+
+.searchdate {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.searchform {
     display: flex;
     flex-direction: column;
     align-items: center;
