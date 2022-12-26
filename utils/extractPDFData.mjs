@@ -1,7 +1,5 @@
 import {PdfReader} from 'pdfreader';
 
-const parsedData = [];
-
 function bubbleSort(arr, coordinate){
 
   //Outer pass
@@ -68,21 +66,22 @@ function calculateBulkSize(numerics) {
   return (totalCopies - totalInKeys)/totalBulk;
 }
 
-function pdfParseData(file) {
+function pdfParseData(file, dataArray) {
   return new Promise((resolve, reject) => {
     new PdfReader().parseFileItems(file, function(err, item){
       if (err)
         reject(err);
       else if (!item)
-        resolve(parsedData);
+        resolve(dataArray);
       else if (item.text)
-        parsedData.push(item);
+        dataArray.push(item);
     });
   });
 };
 
 export async function storeData(filename) {
-  const pdfObject = await pdfParseData(filename);
+  const parsedData = [];
+  const pdfObject = await pdfParseData(filename, parsedData);
   const transformedData = pdfObject.map(item => {
     return {"x": Number(item.x), "y": Number(item.y), "text": item.text};
   });
@@ -113,6 +112,8 @@ export async function storeData(filename) {
   groupedArray.forEach(subArray => {
     bubbleSort(subArray, "x");
   })
+  
+  console.log(groupedArray);
 
   // Join each sub array together.
   let joinedSubArrays = [];

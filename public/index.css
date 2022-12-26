@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.uploadnew {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-arounds;
+    align-items: center;
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+}
+
+.uploadimage {
+    height: 75px;
+    width: 50px;
+}
+
+.fileupload {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.uploadform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+}

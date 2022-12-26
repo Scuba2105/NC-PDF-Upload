@@ -22,7 +22,7 @@ app.use(express.static('public'));
 // Serve index.html when root page accessed
 app.get('/', async (req, res) => {
   const testData = await storeData('/home/steven/WebDevelopment/Route List Summary/pdf/RouteListSummary20221227_NCH_NCHTUE_NCHMFPRIM_221222093142_78.pdf')
-    res.render('routes',testData);
+  res.render('routes',testData);
 });
 
 // Start server listening on port 5050
