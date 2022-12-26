@@ -64,7 +64,7 @@ function calculateBulkSize(numerics) {
   const totalsIndex = numerics.length - 1;
   const totalCopies = numerics[totalsIndex].Supply;
   const totalBulk = numerics[totalsIndex].Bulk;
-  const totalInKeys = numerics[totalsIndex]["Copies in Keys"];
+  const totalInKeys = numerics[totalsIndex]["Copies"];
   return (totalCopies - totalInKeys)/totalBulk;
 }
 
@@ -81,7 +81,7 @@ function pdfParseData(file) {
   });
 };
 
-async function storeData(filename) {
+export async function storeData(filename) {
   const pdfObject = await pdfParseData(filename);
   const transformedData = pdfObject.map(item => {
     return {"x": Number(item.x), "y": Number(item.y), "text": item.text};
@@ -141,7 +141,7 @@ async function storeData(filename) {
   // Obtain numeric data as last 6 entries of each array and 
   splitStrings.forEach((item,index) => {
     const numerics = item.slice(-6);
-    const headers = ['Drops', 'Supply', 'Bulk', 'Keys', 'Copies in Keys', 'Weight (kg)'];
+    const headers = ['Drops', 'Supply', 'Bulk', 'Keys', 'Copies', 'Weight'];
     const tempObject = {};
     numerics.forEach((numeric,index) => {
       return tempObject[headers[index]] = numeric;
@@ -150,8 +150,39 @@ async function storeData(filename) {
     numericDataArray[index] = tempObject;
   });
   
+  // Remove the Cental Coast Runs based on day of week and calculate trucks for NCHSAT
+  if (dayOfWeek == 'Saturday') {
+    numericDataArray.splice(14, 4); // 2nd parameter means remove 4 items only
+    
+    // Calculate truck 1 supply and add to the data Object
+    const truck1 = Number(numericDataArray[0].Supply) + Number(numericDataArray[1].Supply);
+    dataObject.Truck1 = truck1;
+    
+    // Calculate truck 2 supply by summing all relevant runs
+    let truck2 = 0; 
+    for (let i=2; i < numericDataArray.length; i++) {
+      truck2 += Number(numericDataArray[i].Supply);
+    } 
+
+    // Add truck 2 supply to the data Object
+    dataObject.Truck2 = truck2; 
+
+    // Calculate total supply minus the central coast runs
+    dataObject["TruckTotal"] = truck1 + truck2;
+  }
+  else {
+    numericDataArray.splice(13, 3);
+    
+    let totalCount = 0; 
+    for (let i=0; i < numericDataArray.length; i++) {
+      totalCount += Number(numericDataArray[i].Supply);
+    } 
+
+    dataObject["TruckTotal"] = totalCount;
+  }
+  
   // Add data to the object
-  dataObject["Route Data"] = numericDataArray
+  dataObject["RouteData"] = numericDataArray
 
   // Add the date and day data to the object.
   dataObject["Date"] = dateString;
@@ -159,18 +190,17 @@ async function storeData(filename) {
 
   // Calculate the bulk size based on total supply data and add to data object.
   const bulkSize = calculateBulkSize(numericDataArray);
-  dataObject["Bulk Size"] = bulkSize;
+  dataObject["BulkSize"] = bulkSize;
 
   // Determine publication code.
   const pubCode = `NCH${dayOfWeek.split('').slice(0,3).join('').toUpperCase()}`;
-  dataObject["Publication Code"] = pubCode;
+  dataObject["PublicationCode"] = pubCode;
 
   console.log(dataObject);
   
-  return numericDataArray;
+  return dataObject;
 }
 
-storeData("/home/steven/WebDevelopment/Route List Summary/pdf/RouteListSummary20221224_NCH_NCHSAT_NCHSATPRIM_221221082147_58.pdf")
-
+//storeData("/home/steven/WebDevelopment/Route List Summary/pdf/RouteListSummary20221227_NCH_NCHTUE_NCHMFPRIM_221222093142_78.pdf")
 
 

@@ -24,9 +24,34 @@ html(lang='en')
                                 td(class='value')= route.Supply 
                             tr
                                 td(class='label') Bulk:
-                                td(class='value')= route.Bulk
-                            
+                                td(class='value')= Math.floor(route.Supply/BulkSize)
                             tr
                                 td(class='label') Odds:
-                                td(class='value')= route.Copies
+                                td(class='value')= route.Supply % BulkSize
+                table(class='tg')
+                        thead
+                            tr
+                                td(class='route' rowspan='3') TOTALS
+                                td(class='label') Supply:
+                                td(class='value')= TruckTotal
+                            tr
+                                td(class='label') Bulk:
+                                td(class='value')= Math.floor(TruckTotal/BulkSize)
+                            tr
+                                td(class='label') Odds:
+                                td(class='value')= TruckTotal % BulkSize
+                if Day == 'Saturday'
+                    table(class='tg')
+                        thead
+                            tr
+                                td(class='route' rowspan='3') TRUCKS
+                                td(class='label') Truck1:
+                                td(class='value')= Truck1
+                            tr
+                                td(class='label') Truck2:
+                                td(class='value')= Truck2
+                            
+
+                
+
                   
