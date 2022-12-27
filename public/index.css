@@ -33,7 +33,7 @@ body {
 
 .uploadnew {
     display: flex;
-    background-color: rgb(173, 92, 106);
+    background-color: rgb(209, 127, 141);
     color: white;
     flex-direction: column;
     justify-content: space-around;
@@ -51,6 +51,8 @@ body {
 .fileupload {
     border: 1px solid black;
     padding: 10px;
+    color: black;
+    background-color: white;
 }
 
 .uploadform {
@@ -64,10 +66,13 @@ body {
 .submit {
     height: 35px;
     width: 100px;
+    background-color: rgb(131, 42, 56);
+    color: white;
+    border: 1px solid black;
 }
 
 .lookup {
-    background-color: rgb(59, 145, 109);
+    background-color: rgb(83, 173, 136);
     color: white;
     display: flex;
     flex-direction: column;
@@ -94,4 +99,12 @@ body {
     align-items: center;
     justify-content: space-around;
     height: 100px;
+}
+
+.search {
+    height: 35px;
+    width: 100px;
+    background-color: rgb(28, 99, 69);
+    color: white;
+    border: 1px solid black;
 }
