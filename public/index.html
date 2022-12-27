@@ -14,7 +14,7 @@
             <h2>Generate New Data</h2>
             <img class="uploadimage" src="./upload-file.svg"> 
             <form action="/fileupload" method="post" enctype="multipart/form-data" class="uploadform">
-                <input type="file" id="file-upload" class="fileupload" name="pdftoparse"><br>
+                <input type="file" id="file-upload" class="fileupload" name="pdftoparse" required><br>
                 <input type="submit" class="submit">
             </form>
         </div>
@@ -22,7 +22,7 @@
             <h2>Search Data</h2>
             <img class="lookupimage" src="./search.svg"> 
             <form action="/search" method="post" enctype="multipart/form-data" class="searchform">
-                <input type="date" class="searchdate" name="searchforhtml"><br>
+                <input type="date" class="searchdate" name="searchforhtml" required><br>
                 <input type="submit" value="Search" class="search">
             </form>
         </div>

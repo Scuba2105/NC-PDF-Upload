@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.post('/fileupload', async (req, res) => {
   try {
-    const createdData = await createData(req, res);
+    const createdData = await createData(req, res, __dirname);
     res.render('routes',createdData);
   } 
   catch (error) {

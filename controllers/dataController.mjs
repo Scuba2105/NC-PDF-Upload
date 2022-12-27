@@ -20,9 +20,9 @@ export async function createData(req, res) {
     try {
         const pdf = req.files.pdftoparse
         const newData = await storeData(pdf.data);
-        console.log(newData)
         const content = await addNew(newData);
-        writeDataToFile('/home/steven/WebDevelopment/Route List Summary/data/history.json', content);
+        const filePath = '/home/steven/WebDevelopment/Route List Summary/data/history.json';
+        writeDataToFile(filePath, content);
         return newData;
     }
     catch (error) {
