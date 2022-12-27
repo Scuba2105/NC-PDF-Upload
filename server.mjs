@@ -1,8 +1,7 @@
 import express from 'express';
-import path from 'path';
-// Must remove test data and replace with exported function from extractPDFData 
-import {storeData} from './utils/extractPDFData.mjs';
 import fileUpload from "express-fileupload"
+import path from 'path';
+import {findData, createData} from './controllers/dataController.mjs';
 
 // Create app
 const app = express();
@@ -28,9 +27,8 @@ app.get('/', (req, res) => {
 
 app.post('/fileupload', async (req, res) => {
   try {
-    const pdf = req.files.pdftoparse
-    const testData = await storeData(pdf.data);
-    res.render('routes',testData);
+    const createdData = await createData(req, res);
+    res.render('routes',createdData);
   } 
   catch (error) {
     res.send(err.message);
