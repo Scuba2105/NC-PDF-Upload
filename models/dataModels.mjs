@@ -1,12 +1,15 @@
 import history from '../data/history.json' assert { type: "json" };
 import {removeDuplicates} from '../utils/removeDuplicates.mjs'
+import {formatDate} from '../utils/formatDate.mjs'
 
 export function find(searchDate) {
     return new Promise((resolve, reject) => {
-        selectedDevice = history.importedData.find(data => {
-            return data.Date == searchDate 
+        const formattedDate = formatDate(searchDate);
+        const matchingEntry = history.importedData.find(data => {
+            return data.Date == formattedDate; 
         })
-        resolve(selectedDevice);
+        console.log(matchingEntry);
+        resolve(matchingEntry);
     })
 }
 

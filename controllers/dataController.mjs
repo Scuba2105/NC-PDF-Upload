@@ -3,17 +3,9 @@ import {writeDataToFile} from '../utils/writeDataToFile.mjs';
 import {storeData} from '../utils/extractPDFData.mjs';
 
 export async function findData(req, res) {
-    try {
-        model = req.url.split('/')[3];
-               
-        const equipment = await find(model);
-        
-        res.writeHead(200, {'Content-Type': 'application/json'});
-        res.write(JSON.stringify(equipment));
-        res.end();
-    } catch (error) {
-        console.log(error);
-    }
+        const date = req.body.searchfordata;
+        const content = await find(date);
+        return content;
 }
 
 export async function createData(req, res) {

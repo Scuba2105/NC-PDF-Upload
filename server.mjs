@@ -35,20 +35,13 @@ app.post('/fileupload', async (req, res) => {
   }
 });
 
-app.post('/search', (req, res) => {
+app.post('/search', async (req, res) => {
   try {
-    const body = 'hello world';
-    
-    // Calling response.writeHead method
-    res.writeHead(200, {
-      'Content-Length': Buffer.byteLength(body),
-      'Content-Type': 'text/plain'
-    });
-    
-    res.end(body);
+    const foundData = await findData(req, res, __dirname);
+    res.render('routes',foundData);  
   } 
   catch (error) {
-    res.send(err.message);
+    res.send(`There is no data for ${req.body.searchfordata} . Please select an appropriate date`);
   }
 });
 
