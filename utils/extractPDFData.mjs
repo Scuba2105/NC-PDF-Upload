@@ -68,7 +68,7 @@ function calculateBulkSize(numerics) {
 
 function pdfParseData(file, dataArray) {
   return new Promise((resolve, reject) => {
-    new PdfReader().parseFileItems(file, function(err, item){
+    new PdfReader().parseBuffer(file, function(err, item){
       if (err)
         reject(err);
       else if (!item)
@@ -113,8 +113,6 @@ export async function storeData(filename) {
     bubbleSort(subArray, "x");
   })
   
-  console.log(groupedArray);
-
   // Join each sub array together.
   let joinedSubArrays = [];
   groupedArray.forEach(subArray => {
@@ -197,7 +195,7 @@ export async function storeData(filename) {
   const pubCode = `NCH${dayOfWeek.split('').slice(0,3).join('').toUpperCase()}`;
   dataObject["PublicationCode"] = pubCode;
 
-  console.log(dataObject);
+  //console.log(dataObject);
   
   return dataObject;
 }
