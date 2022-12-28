@@ -1,6 +1,13 @@
-import history from '../data/history.json' assert { type: "json" };
+//import history from '../data/history.json' assert { type: "json" };
 import {removeDuplicates} from '../utils/removeDuplicates.mjs'
 import {formatDate} from '../utils/formatDate.mjs'
+import path from 'path';
+import fs from 'fs';
+
+const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
+
+const history = loadJSON('../data/history.json');
+
 
 export function find(searchDate) {
     return new Promise((resolve, reject) => {
