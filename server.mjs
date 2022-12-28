@@ -1,7 +1,7 @@
 import express from 'express';
 import fileUpload from "express-fileupload"
 import path from 'path';
-import {findData, createData} from './controllers/dataController.mjs';
+import {findData, createData, getJSON} from './controllers/dataController.mjs';
 
 // Create app
 const app = express();
@@ -25,6 +25,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
+app.get('/dates', async (req, res) => {
+  try {
+    getJSON(req, res);
+  } 
+  catch (err) {
+    res.send(err.message);
+  }
+});
+
 app.post('/fileupload', async (req, res) => {
   try {
     const createdData = await createData(req, res, __dirname);
@@ -36,12 +45,17 @@ app.post('/fileupload', async (req, res) => {
 });
 
 app.post('/search', async (req, res) => {
-  try {
-    const foundData = await findData(req, res, __dirname);
-    res.render('routes',foundData);  
-  } 
+  try {  
+  const foundData = await findData(req, res, __dirname);
+    if (foundData != undefined) {
+      res.render('routes',foundData);  
+    }
+    else {
+      res.send(`There is no data for ${res.body.searchfordata}. Please select a valid date`);
+    }
+  }
   catch (error) {
-    res.send(`There is no data for ${req.body.searchfordata} . Please select an appropriate date`);
+    res.send(err.message);
   }
 });
 

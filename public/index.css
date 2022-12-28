@@ -65,7 +65,7 @@ body {
     height: 100px;
 }
 
-.submit {
+.upload {
     height: 35px;
     width: 100px;
     background-color: rgb(131, 42, 56);
@@ -110,4 +110,8 @@ body {
     background-color: rgb(28, 99, 69);
     color: white;
     border: 1px solid black;
+}
+
+input[type="button"] {
+    font-size: 18px;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./index.css">
+    <script src="./validation.js" defer></script>
 </head>
 <body>
     <h1 class="title">Hunter Circulation Route Summary Generator</h1>
@@ -15,7 +16,7 @@
             <img class="uploadimage" src="./upload-file.svg"> 
             <form action="/fileupload" method="post" enctype="multipart/form-data" class="uploadform">
                 <input type="file" id="file-upload" class="fileupload" name="pdftoparse" required><br>
-                <input type="submit" class="submit">
+                <input type="button" value="Upload" class="upload">
             </form>
         </div>
         <div class="lookup">
@@ -23,7 +24,7 @@
             <img class="lookupimage" src="./search.svg"> 
             <form action="/search" method="post" enctype="multipart/form-data" class="searchform">
                 <input type="date" class="searchdate" name="searchfordata" required><br>
-                <input type="submit" value="Search" class="search">
+                <input type="button" value="Search" class="search">
             </form>
         </div>
     </div>
