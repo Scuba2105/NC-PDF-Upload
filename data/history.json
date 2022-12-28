@@ -135,7 +135,8 @@
       "Date": "24/12/2022",
       "Day": "Saturday",
       "BulkSize": 60,
-      "PublicationCode": "NCHSAT"
+      "PublicationCode": "NCHSAT",
+      "_locals": {}
     },
     {
       "TruckTotal": 9252,

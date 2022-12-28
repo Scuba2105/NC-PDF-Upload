@@ -14,7 +14,9 @@ function pdfValidation() {
         return
     }
 
-    const filename = value.replace(/\\/g,'%').split('%')[2];
+    const stringArray = value.replace(/\\/g,'%').split('%');
+    const lastIndex = stringArray.length - 1;
+    const filename = stringArray[lastIndex];
     const extension = filename.split('.')[1];
     const name = filename.split('.')[0];
     if (/^RouteListSummary/.test(name) && extension == 'pdf') {
