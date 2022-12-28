@@ -514,6 +514,132 @@
       "Day": "Wednesday",
       "BulkSize": 60,
       "PublicationCode": "NCHWED"
+    },
+    {
+      "TruckTotal": 10193,
+      "RouteData": [
+        {
+          "Drops": "39",
+          "Supply": "3689",
+          "Bulk": "42",
+          "Keys": "39",
+          "Copies": "749",
+          "Weight": "516.46",
+          "Route": "MFNDSNEW"
+        },
+        {
+          "Drops": "1",
+          "Supply": "2",
+          "Bulk": "0",
+          "Keys": "1",
+          "Copies": "2",
+          "Weight": "0.28",
+          "Route": "MFNDSCC"
+        },
+        {
+          "Drops": "14",
+          "Supply": "308",
+          "Bulk": "1",
+          "Keys": "14",
+          "Copies": "238",
+          "Weight": "43.12",
+          "Route": "MFB010N"
+        },
+        {
+          "Drops": "16",
+          "Supply": "327",
+          "Bulk": "1",
+          "Keys": "16",
+          "Copies": "257",
+          "Weight": "45.78",
+          "Route": "MFB015N"
+        },
+        {
+          "Drops": "20",
+          "Supply": "122",
+          "Bulk": "0",
+          "Keys": "20",
+          "Copies": "122",
+          "Weight": "17.08",
+          "Route": "MFB020N"
+        },
+        {
+          "Drops": "12",
+          "Supply": "160",
+          "Bulk": "0",
+          "Keys": "12",
+          "Copies": "160",
+          "Weight": "22.40",
+          "Route": "MFB060N"
+        },
+        {
+          "Drops": "23",
+          "Supply": "729",
+          "Bulk": "4",
+          "Keys": "23",
+          "Copies": "449",
+          "Weight": "102.06",
+          "Route": "MFB065N"
+        },
+        {
+          "Drops": "14",
+          "Supply": "942",
+          "Bulk": "8",
+          "Keys": "14",
+          "Copies": "382",
+          "Weight": "131.88",
+          "Route": "MFB070N"
+        },
+        {
+          "Drops": "20",
+          "Supply": "1549",
+          "Bulk": "15",
+          "Keys": "20",
+          "Copies": "499",
+          "Weight": "216.86",
+          "Route": "MFB075N"
+        },
+        {
+          "Drops": "13",
+          "Supply": "406",
+          "Bulk": "3",
+          "Keys": "13",
+          "Copies": "196",
+          "Weight": "56.84",
+          "Route": "MFB080N"
+        },
+        {
+          "Drops": "30",
+          "Supply": "589",
+          "Bulk": "0",
+          "Keys": "30",
+          "Copies": "589",
+          "Weight": "82.46",
+          "Route": "MFB085N"
+        },
+        {
+          "Drops": "10",
+          "Supply": "473",
+          "Bulk": "3",
+          "Keys": "10",
+          "Copies": "263",
+          "Weight": "66.22",
+          "Route": "MFB090N"
+        },
+        {
+          "Drops": "35",
+          "Supply": "897",
+          "Bulk": "5",
+          "Keys": "35",
+          "Copies": "547",
+          "Weight": "125.58",
+          "Route": "MFB095N"
+        }
+      ],
+      "Date": "29/12/2022",
+      "Day": "Thursday",
+      "BulkSize": 70,
+      "PublicationCode": "NCHTHU"
     }
   ]
 }

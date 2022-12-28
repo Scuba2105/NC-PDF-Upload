@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.get('/dates', async (req, res) => {
   try {
-    getJSON(req, res);
+    getJSON(req, res, __dirname);
   } 
   catch (err) {
     res.send(err.message);

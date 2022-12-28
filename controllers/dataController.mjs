@@ -2,6 +2,7 @@ import {find, addNew} from '../models/dataModels.mjs';
 import {writeDataToFile} from '../utils/writeDataToFile.mjs';
 import {storeData} from '../utils/extractPDFData.mjs';
 import fs from 'fs';
+import path from 'path';
 
 export async function findData(req, res) {
     try {
@@ -13,12 +14,12 @@ export async function findData(req, res) {
     }
 }
 
-export async function createData(req, res) {
+export async function createData(req, res, __dirname) {
     try {
         const pdf = req.files.pdftoparse
         const newData = await storeData(pdf.data);
         const content = await addNew(newData);
-        const filePath = '/home/steven/WebDevelopment/Route List Summary/public/data/history.json';
+        const filePath = path.join(__dirname, 'data', 'history.json');
         writeDataToFile(filePath, content);
         return newData;
     }
@@ -27,8 +28,8 @@ export async function createData(req, res) {
     }
 }
 
-export async function getJSON(req, res) {
-    const dataPath = '/home/steven/WebDevelopment/Route List Summary/data/history.json';
+export async function getJSON(req, res, rootPath) {
+    const dataPath = path.join(rootPath, 'data', 'history.json');
     fs.readFile(dataPath, 'utf8', (err, data) => {
         if (err) {
             throw err;
