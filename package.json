@@ -24,9 +24,6 @@
     "pdf2json": "^3.0.2",
     "pdfreader": "^3.0.0",
     "pug": "^3.0.2"
-  },
-  "overrides": {
-    "pdf2json": "3.0.2"
   }
 }
 
