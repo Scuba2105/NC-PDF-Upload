@@ -42,15 +42,20 @@ async function dateValidation() {
         return
     }
 
-    formattedDate = inputDate.split('-').reverse().join('/');
+    console.log(`${directory}dates`);
 
+    formattedDate = inputDate.split('-').reverse().join('/');
+    
     const response = await fetch(`${directory}dates`);
+
     const dataObject  = await response.json();
     const dataArray = dataObject.importedData;
     const dates = dataArray.map(data => {
         return data.Date
     })
     
+    console.log(dates);
+
     if (dates.includes(formattedDate)) {
         searchForm.submit();
     }    
