@@ -195,8 +195,27 @@ export async function storeData(filename) {
   const pubCode = `NCH${dayOfWeek.split('').slice(0,3).join('').toUpperCase()}`;
   dataObject["PublicationCode"] = pubCode;
 
-  //console.log(dataObject);
-  
+  switch (dayOfWeek) {
+    case 'Monday':
+      dataObject["BackgroundColor"] = '#b8f2ba';
+      break 
+    case 'Tuesday':
+      dataObject["BackgroundColor"] = '#eef0b9';
+      break 
+    case 'Wednesday':
+      dataObject["BackgroundColor"] = '#b9c4f0';
+      break 
+    case 'Thursday':
+      dataObject["BackgroundColor"] = '#f0e0b9';
+      break 
+    case 'Friday':
+      dataObject["BackgroundColor"] = '#e2b9f0';
+      break 
+    default:
+      dataObject["BackgroundColor"] = '#f0b9bd';
+      break 
+  }
+
   return dataObject;
 }
 
