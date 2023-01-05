@@ -30,6 +30,11 @@ function groupBy(ary, keyFunc) {
     return r[newKey];
   });
 };
+ 
+// Absolute difference calculator
+function difference(a, b) {
+  return Math.abs(a - b);
+}
 
 function getDayOfWeek(dateString) {
   // Split date string to get day, month and year.
@@ -117,18 +122,30 @@ export async function storeData(filename) {
   const fixedGroupArray = groupedArray.map(array => {
     let joinCount = 0;
     return array.reduce((acc, curr, index) => {
+      console.log(acc, curr, index);
       const newIndex = index - joinCount; 
-      
       const lastEntry = acc[newIndex - 1];
-      if (index > 0 && curr.x-lastEntry.x < 1) {
-        joinCount += 1;
-        acc.pop();
-        acc.push({"x": lastEntry.x, "y": lastEntry.y, "text": String(lastEntry.text) + String(curr.text)});
-        return acc 
+
+      if (index > 0) {
+        const prevStart = lastEntry.x;
+        const prevTextLength = lastEntry.text.length;
+        const prevEnd = prevStart + prevTextLength * 0.378;
+        
+        if (difference(curr.x, prevEnd) < 0.5) {
+          joinCount += 1;
+          acc.pop();
+          acc.push({"x": lastEntry.x, "y": lastEntry.y, "text": String(lastEntry.text) + String(curr.text)});
+          return acc 
+        }
+        else {
+          acc.push(curr);
+          return acc
+        }
+      }      
+      else {
+        acc.push(curr);
+        return acc
       }
-      
-      acc.push(curr);
-      return acc
     }, []);
   });
   
@@ -146,6 +163,8 @@ export async function storeData(filename) {
   const splitStrings = joinedSubArrays.map(string => {
     return string.replace(/\s/g, '').replace(',;','').replace(',','').split(';');
   });
+
+  console.log(splitStrings);
 
   // Determine the required routes based on day of week.
   const routes = determineRoutes(dayOfWeek);
