@@ -106,16 +106,35 @@ export async function storeData(filename) {
   });
   
   // Check the number of rows in the output.
-  //console.log(groupedArray.length);
+  console.log(groupedArray.length);
 
   // Arrange each row into order based on x position. 
   groupedArray.forEach(subArray => {
     bubbleSort(subArray, "x");
   })
   
+  // Find separated values that were not scanned properly. Need to refine spacing determination.
+  const fixedGroupArray = groupedArray.map(array => {
+    let joinCount = 0;
+    return array.reduce((acc, curr, index) => {
+      const newIndex = index - joinCount; 
+      
+      const lastEntry = acc[newIndex - 1];
+      if (index > 0 && curr.x-lastEntry.x < 1) {
+        joinCount += 1;
+        acc.pop();
+        acc.push({"x": lastEntry.x, "y": lastEntry.y, "text": String(lastEntry.text) + String(curr.text)});
+        return acc 
+      }
+      
+      acc.push(curr);
+      return acc
+    }, []);
+  });
+  
   // Join each sub array together.
   let joinedSubArrays = [];
-  groupedArray.forEach(subArray => {
+  fixedGroupArray.forEach(subArray => {
     let mappedSubArray = [];
     subArray.map(item => {
       mappedSubArray.push(item.text);

@@ -641,6 +641,144 @@
       "Day": "Thursday",
       "BulkSize": 70,
       "PublicationCode": "NCHTHU"
+    },
+    {
+      "Truck1": 4,
+      "Truck2": 11716,
+      "TruckTotal": 11720,
+      "RouteData": [
+        {
+          "Drops": "6908",
+          "Supply": "2",
+          "Bulk": "11",
+          "Keys": "40",
+          "Copies": "578",
+          "Weight": "2224.38",
+          "Route": "SATNDSNEW"
+        },
+        {
+          "Drops": "1",
+          "Supply": "2",
+          "Bulk": "0",
+          "Keys": "1",
+          "Copies": "2",
+          "Weight": "0.64",
+          "Route": "SATNDSCC"
+        },
+        {
+          "Drops": "14",
+          "Supply": "368",
+          "Bulk": "7",
+          "Keys": "14",
+          "Copies": "158",
+          "Weight": "118.50",
+          "Route": "SATB005N"
+        },
+        {
+          "Drops": "4",
+          "Supply": "257",
+          "Bulk": "7",
+          "Keys": "4",
+          "Copies": "47",
+          "Weight": "82.75",
+          "Route": "SATB015N"
+        },
+        {
+          "Drops": "14",
+          "Supply": "235",
+          "Bulk": "2",
+          "Keys": "14",
+          "Copies": "175",
+          "Weight": "75.67",
+          "Route": "SATB018N"
+        },
+        {
+          "Drops": "21",
+          "Supply": "222",
+          "Bulk": "0",
+          "Keys": "21",
+          "Copies": "222",
+          "Weight": "71.48",
+          "Route": "SATB020N"
+        },
+        {
+          "Drops": "12",
+          "Supply": "339",
+          "Bulk": "5",
+          "Keys": "12",
+          "Copies": "189",
+          "Weight": "109.16",
+          "Route": "SATB030N"
+        },
+        {
+          "Drops": "13",
+          "Supply": "754",
+          "Bulk": "20",
+          "Keys": "13",
+          "Copies": "154",
+          "Weight": "242.79",
+          "Route": "SATB045N"
+        },
+        {
+          "Drops": "20",
+          "Supply": "3034",
+          "Bulk": "88",
+          "Keys": "20",
+          "Copies": "394",
+          "Weight": "976.95",
+          "Route": "SATB055N"
+        },
+        {
+          "Drops": "30",
+          "Supply": "1226",
+          "Bulk": "27",
+          "Keys": "30",
+          "Copies": "416",
+          "Weight": "394.77",
+          "Route": "SATB060N"
+        },
+        {
+          "Drops": "35",
+          "Supply": "1276",
+          "Bulk": "28",
+          "Keys": "35",
+          "Copies": "436",
+          "Weight": "410.87",
+          "Route": "SATB065N"
+        },
+        {
+          "Drops": "24",
+          "Supply": "1219",
+          "Bulk": "27",
+          "Keys": "24",
+          "Copies": "409",
+          "Weight": "392.52",
+          "Route": "SATB067N"
+        },
+        {
+          "Drops": "9",
+          "Supply": "909",
+          "Bulk": "25",
+          "Keys": "9",
+          "Copies": "159",
+          "Weight": "292.70",
+          "Route": "SATB070N"
+        },
+        {
+          "Drops": "15",
+          "Supply": "1877",
+          "Bulk": "55",
+          "Keys": "15",
+          "Copies": "227",
+          "Weight": "604.39",
+          "Route": "SATB090N"
+        }
+      ],
+      "Date": "07/01/2023",
+      "Day": "Saturday",
+      "BulkSize": 30,
+      "PublicationCode": "NCHSAT",
+      "BackgroundColor": "#f0b9bd"
     }
   ]
 }
