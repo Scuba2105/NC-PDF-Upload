@@ -111,7 +111,7 @@ export async function storeData(filename) {
   });
   
   // Check the number of rows in the output.
-  console.log(groupedArray.length);
+  //console.log(groupedArray.length);
 
   // Arrange each row into order based on x position. 
   groupedArray.forEach(subArray => {
@@ -122,7 +122,7 @@ export async function storeData(filename) {
   const fixedGroupArray = groupedArray.map(array => {
     let joinCount = 0;
     return array.reduce((acc, curr, index) => {
-      console.log(acc, curr, index);
+      //console.log(acc, curr, index);
       const newIndex = index - joinCount; 
       const lastEntry = acc[newIndex - 1];
 
@@ -130,8 +130,12 @@ export async function storeData(filename) {
         const prevStart = lastEntry.x;
         const prevTextLength = lastEntry.text.length;
         const prevEnd = prevStart + prevTextLength * 0.378;
-        
-        if (difference(curr.x, prevEnd) < 0.5) {
+        //console.log(curr, prevEnd, curr.x);
+        const previousText = lastEntry.text;
+        const prevLength = previousText.length - 1; 
+        const prevLetter = previousText[prevLength];
+                
+        if (difference(curr.x, prevEnd) < 0.5 || prevLetter == '.') {
           joinCount += 1;
           acc.pop();
           acc.push({"x": lastEntry.x, "y": lastEntry.y, "text": String(lastEntry.text) + String(curr.text)});
@@ -164,7 +168,7 @@ export async function storeData(filename) {
     return string.replace(/\s/g, '').replace(',;','').replace(',','').split(';');
   });
 
-  console.log(splitStrings);
+  //console.log(splitStrings);
 
   // Determine the required routes based on day of week.
   const routes = determineRoutes(dayOfWeek);
@@ -258,5 +262,4 @@ export async function storeData(filename) {
 }
 
 //storeData("/home/steven/WebDevelopment/Route List Summary/pdf/RouteListSummary20221227_NCH_NCHTUE_NCHMFPRIM_221222093142_78.pdf")
-
 
